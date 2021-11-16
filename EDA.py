@@ -21,7 +21,7 @@ print(df_pop.head(5))
 df_pop_es = df_pop[df_pop["country"] == 'Spain' ]
 print(df_pop_es.head())
 df_pop_es.drop(['country'],axis=1)['population'].plot(kind='bar')
-
+plt.show()
 
 df_pop_ar = df_pop[(df_pop["country"] == 'Argentina')]
 
@@ -33,6 +33,7 @@ df_plot = pd.DataFrame({'Argentina': pop_ar,
                     'Spain': pop_es}, 
                        index=anios)
 df_plot.plot(kind='bar')
+plt.show()
 
 df_pop_ar = df_pop[(df_pop["country"] == 'Argentina')]
 
@@ -51,6 +52,7 @@ df_espanol = df_espanol[ df_espanol['languages'].str.contains('es') ]
 df_espanol
 
 df_espanol.set_index('alpha_3')[['population','area']].plot(kind='bar',rot=65,figsize=(20,10))
+plt.show()
 
 anomalies = []
 
@@ -78,3 +80,5 @@ find_anomalies(df_espanol.set_index('alpha_3')[['population']])
 # Quitemos BRA y USA por ser outlies y volvamos a graficar:
 df_espanol.drop([30,233], inplace=True)
 df_espanol.set_index('alpha_3')[['population','area']].sort_values(["population"]).plot(kind='bar',rot=65,figsize=(20,10))
+
+plt.show()
